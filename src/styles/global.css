@@ -3,14 +3,14 @@
     --main-bg-color: #221f1f;
     --main-font-family: system-ui;
     --main-font-size: 18px;
+    --gray-light: gray;
+    --pre-bg: #24292e;
 }
 
 * {
-    text-decoration: none;
-    list-style: none;
     color: var(--main-color);
     margin: 0;
-    padding: 0;
+    /* padding: 0; */
 }
 
 /* --------------------------- */
@@ -21,47 +21,29 @@ h3,
 h4,
 h5,
 h6 {
-	margin: 0 0 0.5rem 0;
-	/* color: rgb(var(--black)); */
-	line-height: 1.2;
+	margin: 0 0 0.5em 0;
+    font-weight: normal;
 }
 h1 {
-	font-size: 3.052em;
+	font-size: 2.5em;
 }
 h2 {
-	font-size: 2.441em;
+	font-size: 2em;
 }
 h3 {
-	font-size: 1.953em;
+	font-size: 1.5em;
 }
 h4 {
-	font-size: 1.563em;
+	font-size: 1.2em;
 }
 h5 {
-	font-size: 1.25em;
+	font-size: 1em;
 }
-strong,
-b {
-	font-weight: 700;
-}
-/* a {
-	color: var(--accent);
-}
-a:hover {
-	color: var(--accent);
-} */
 p {
 	margin-bottom: 1em;
 }
 .prose p {
 	margin-bottom: 2em;
-}
-textarea {
-	width: 100%;
-	font-size: 16px;
-}
-input {
-	font-size: 16px;
 }
 table {
 	width: 100%;
@@ -69,30 +51,31 @@ table {
 img {
 	max-width: 100%;
 	height: auto;
-	border-radius: 8px;
+	/* border-radius: 8px; */
 }
 code {
 	padding: 2px 5px;
-	background-color: rgb(var(--gray-light));
-	border-radius: 2px;
+	background-color: var(--pre-bg);
+    color: #e4f7ec;
 }
 pre {
-	padding: 1.5em;
-	border-radius: 8px;
+	padding: 10px;
+    background-color: var(--pre-bg);
+    margin-bottom: 20px;
 }
 pre > code {
 	all: unset;
 }
 blockquote {
-	border-left: 4px solid var(--accent);
 	padding: 0 0 0 20px;
-	margin: 0px;
-	font-size: 1.333em;
+	font-style: oblique;
 }
 hr {
 	border: none;
-	border-top: 1px solid rgb(var(--gray-light));
+	border-top: 1px solid var(--gray-light);
+    margin: 20px 0;
 }
+
 
 /* --------------------------- */
 

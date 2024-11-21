@@ -9,7 +9,7 @@ const { frontmatter } = Astro.props;
   <header class="content-header">
     <h1 class="post-title">{frontmatter.title}</h1>
     <div class="post-date">
-      Uploaded{frontmatter.date.toString().slice(0, 10)}
+      Uploaded: {frontmatter.date.toString()}
     </div>
     <div class="post-tags">
       {
