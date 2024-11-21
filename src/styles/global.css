@@ -22,7 +22,7 @@ h4,
 h5,
 h6 {
 	margin: 0 0 0.5rem 0;
-	color: rgb(var(--black));
+	/* color: rgb(var(--black)); */
 	line-height: 1.2;
 }
 h1 {
@@ -44,12 +44,12 @@ strong,
 b {
 	font-weight: 700;
 }
-a {
+/* a {
 	color: var(--accent);
 }
 a:hover {
 	color: var(--accent);
-}
+} */
 p {
 	margin-bottom: 1em;
 }
@@ -134,18 +134,17 @@ svg {
     fill: var(--main-color);
 }
 
+/* как подружить со светлой темой? */
 @property --color-gradient {
     syntax: '<color>';
     initial-value: #f0f0f0;
     inherits: false;
 }
 
-.onhover-gradient-text {
+html:not(.light) .onhover-gradient-text {
     display: inline-block;
-    --extra-color: var(--main-color);
     /* background-color: #ff0000; */
     background-image: linear-gradient(135deg, var(--main-color), var(--color-gradient));
-    
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
@@ -153,7 +152,7 @@ svg {
 
 }
 
-.onhover-gradient-text:hover {
+html:not(.light) .onhover-gradient-text:hover {
     display: inline-block;
     --color-gradient: #777777;
     -webkit-background-clip: text;

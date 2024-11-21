@@ -1,27 +1,31 @@
 ---
 import BaseLayout from "./BaseLayout.astro";
 import Post from "../components/Post.astro";
+import ContentHeader from "../components/ContentHeader.astro";
 const { frontmatter } = Astro.props;
 ---
 
 <BaseLayout pageTitle={frontmatter.title}>
-  <h1 class="post-title">{frontmatter.title}</h1>
-  <div class="post-date">
-    Uploaded{frontmatter.date.toString().slice(0, 10)}
-  </div>
-  <div class="post-tags">
-    {
-      frontmatter.tags.map((tag) => (
-        <>
-          <a href={`/tags/${tag}`} class="onhover-gradient-text">
-            #{tag}
-          </a>
-          <span> </span>
-        </>
-      ))
-    }
-  </div>
-  <hr class="post-hr" />
+  <header class="content-header">
+    <h1 class="post-title">{frontmatter.title}</h1>
+    <div class="post-date">
+      Uploaded{frontmatter.date.toString().slice(0, 10)}
+    </div>
+    <div class="post-tags">
+      {
+        frontmatter.tags.map((tag) => (
+          <>
+            <a href={`/tags/${tag}`} class="onhover-gradient-text">
+              #{tag}
+            </a>
+            <span> </span>
+          </>
+        ))
+      }
+    </div>
+    <hr class="post-hr" />
+  </header>
+
   <Post>
     <slot />
   </Post>
@@ -36,5 +40,17 @@ const { frontmatter } = Astro.props;
     background-position:
       0 0,
       2px 2px;
+  }
+
+  .content-header {
+    /* height: 200px; */
+    /* padding-bottom: 100px; */
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-end;
+    gap: 20px;
+    padding-top: 100px;
   }
 </style>

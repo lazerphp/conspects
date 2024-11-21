@@ -73,10 +73,10 @@
     if (window.matchMedia("(prefers-color-scheme: light)").matches) {
       return "light";
     }
-    return "light";
+    return "dark";
   })();
 
-  if (theme === "light") {
+  if (theme === "dark") {
     document.documentElement.classList.remove("light");
   } else {
     document.documentElement.classList.add("light");
@@ -89,7 +89,7 @@
     element.classList.toggle("light");
 
     const isDark = element.classList.contains("light");
-    localStorage.setItem("theme", isDark ? "light" : "light");
+    localStorage.setItem("theme", isDark ? "light" : "dark");
   };
 
   document
