@@ -1,0 +1,30 @@
+---
+const allPosts = await Astro.glob("../pages/posts/*.md");
+const tags = [...new Set(allPosts.map((post) => post.frontmatter.tags).flat())];
+---
+
+<section class="tags">
+  {
+    tags.map((tag) => {
+      <a href={`/tags/${tag}`} class="tag onhover-gradient-text">
+        #{tag}
+      </a>;
+    })
+  }
+</section>
+<style>
+  .tags {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    /* align-items: center; */
+    padding-top: 20px;
+  }
+
+  .tag {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+</style>

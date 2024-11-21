@@ -1,0 +1,13 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ContentHeader from "../components/ContentHeader.astro";
+import PostList from "../components/PostList.astro";
+
+const posts = await Astro.glob("./posts/*.md");
+const pageTitle = "Blok";
+---
+
+<BaseLayout pageTitle={pageTitle}>
+  <ContentHeader>▐𝟯 █▄ ⬤ ▐▅▚</ContentHeader>
+  <PostList posts={posts} />
+</BaseLayout>

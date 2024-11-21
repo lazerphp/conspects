@@ -1,0 +1,40 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+import Post from "../components/Post.astro";
+const { frontmatter } = Astro.props;
+---
+
+<BaseLayout pageTitle={frontmatter.title}>
+  <h1 class="post-title">{frontmatter.title}</h1>
+  <div class="post-date">
+    Uploaded{frontmatter.date.toString().slice(0, 10)}
+  </div>
+  <div class="post-tags">
+    {
+      frontmatter.tags.map((tag) => (
+        <>
+          <a href={`/tags/${tag}`} class="onhover-gradient-text">
+            #{tag}
+          </a>
+          <span> </span>
+        </>
+      ))
+    }
+  </div>
+  <hr class="post-hr" />
+  <Post>
+    <slot />
+  </Post>
+</BaseLayout>
+<style>
+  .post-hr {
+    width: 100%;
+    border: none;
+    height: 2px;
+    background-image: linear-gradient(90deg, transparent 50%, snow 50%);
+    background-size: 10px 4px;
+    background-position:
+      0 0,
+      2px 2px;
+  }
+</style>

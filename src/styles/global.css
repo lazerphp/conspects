@@ -1,0 +1,162 @@
+:root {
+    --main-color: #f0f0f0;
+    --main-bg-color: #221f1f;
+    --main-font-family: system-ui;
+    --main-font-size: 18px;
+}
+
+* {
+    text-decoration: none;
+    list-style: none;
+    color: var(--main-color);
+    margin: 0;
+    padding: 0;
+}
+
+/* --------------------------- */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin: 0 0 0.5rem 0;
+	color: rgb(var(--black));
+	line-height: 1.2;
+}
+h1 {
+	font-size: 3.052em;
+}
+h2 {
+	font-size: 2.441em;
+}
+h3 {
+	font-size: 1.953em;
+}
+h4 {
+	font-size: 1.563em;
+}
+h5 {
+	font-size: 1.25em;
+}
+strong,
+b {
+	font-weight: 700;
+}
+a {
+	color: var(--accent);
+}
+a:hover {
+	color: var(--accent);
+}
+p {
+	margin-bottom: 1em;
+}
+.prose p {
+	margin-bottom: 2em;
+}
+textarea {
+	width: 100%;
+	font-size: 16px;
+}
+input {
+	font-size: 16px;
+}
+table {
+	width: 100%;
+}
+img {
+	max-width: 100%;
+	height: auto;
+	border-radius: 8px;
+}
+code {
+	padding: 2px 5px;
+	background-color: rgb(var(--gray-light));
+	border-radius: 2px;
+}
+pre {
+	padding: 1.5em;
+	border-radius: 8px;
+}
+pre > code {
+	all: unset;
+}
+blockquote {
+	border-left: 4px solid var(--accent);
+	padding: 0 0 0 20px;
+	margin: 0px;
+	font-size: 1.333em;
+}
+hr {
+	border: none;
+	border-top: 1px solid rgb(var(--gray-light));
+}
+
+/* --------------------------- */
+
+html {
+    height: 100%;
+    background-color: var(--main-bg-color);
+    color: var(--main-color);
+    font-family: var(--main-font-family);
+    word-break: break-all;
+    overflow-y: scroll;
+    font-size: var(--main-font-size);
+}
+
+html.light {
+    --buf: var(--main-bg-color);
+    --main-bg-color: var(--main-color);
+    --main-color: var(--buf);
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    padding: 0 2em;
+    height: 100%;
+}
+
+.main {
+    width: 700px;
+    max-width: 100%;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+svg {
+    fill: var(--main-color);
+}
+
+@property --color-gradient {
+    syntax: '<color>';
+    initial-value: #f0f0f0;
+    inherits: false;
+}
+
+.onhover-gradient-text {
+    display: inline-block;
+    --extra-color: var(--main-color);
+    /* background-color: #ff0000; */
+    background-image: linear-gradient(135deg, var(--main-color), var(--color-gradient));
+    
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    transition: --color-gradient 400ms;
+
+}
+
+.onhover-gradient-text:hover {
+    display: inline-block;
+    --color-gradient: #777777;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}

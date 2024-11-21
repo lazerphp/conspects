@@ -1,0 +1,27 @@
+---
+const { posts } = Astro.props;
+---
+
+<section class="post-list">
+  {
+    posts.map((post) => (
+      <a class="post-item onhover-gradient-text" href={post.url}>
+        {post.frontmatter.title} ::{" "}
+        {post.frontmatter.date.toString().slice(0, 10)}
+        <br />
+        {post.frontmatter.tags.map((tag) => "#" + tag + " ")}
+        <br />
+        {post.frontmatter.desc}
+      </a>
+    ))
+  }
+</section>
+<style>
+  .post-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: flex-start;
+    padding-top: 10px;
+  }
+</style>

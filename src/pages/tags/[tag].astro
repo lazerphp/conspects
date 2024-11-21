@@ -1,0 +1,34 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ContentHeader from "../../components/ContentHeader.astro";
+import PostList from "../../components/PostList.astro";
+
+export async function getStaticPaths() {
+  const posts = await Astro.glob("../posts/*.md");
+  const uniqueTags = [
+    ...new Set(posts.map((post) => post.frontmatter.tags).flat()),
+  ];
+
+  return uniqueTags.map((tag) => {
+    const filteredPosts = posts.filter((post) =>
+      post.frontmatter.tags.includes(tag),
+    );
+    return {
+      params: { tag },
+      props: { posts: filteredPosts },
+    };
+  });
+}
+
+const { tag } = Astro.params;
+const { posts } = Astro.props;
+
+const pageTitle = "Tag " + tag;
+---
+
+<BaseLayout pageTitle={pageTitle}>
+  <ContentHeader>▀█▀ ▅▀▅ ▐▅▚ ▄█▀</ContentHeader>
+  <a href="/tags/" class="view-all onhover-gradient-text">view all tags</a>
+  <h1 class="tag-name">{tag} ({posts.length})</h1>
+  <PostList posts={posts} />
+</BaseLayout>
